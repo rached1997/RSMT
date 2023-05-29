@@ -1,0 +1,36 @@
+# template metadata
+
+
+'max_lines' : "{{ ((max_percentage_of_distorted_lines * n_lines) /100)| round(0,'ceil') * 2 }}"
+'max_columns' : "{{ ((max_percentage_of_distorted_columns * n_lines) /100)| round(0,'ceil') * 2 }}"
+'max_bands' : "{{ ((max_percentage_of_distorted_bands * n_bands) /100)| round(0,'ceil') * 2 }}"
+'max_bands_for_sbl' : "{{ ((max_percentage_of_distorted_bands_for_sbl * n_bands) /100)| round(0,'ceil') * 2 }}"
+'max_pixels_for_spatial_gn' : "{{ ((max_percentage_of_gaussian_noisy_pixels * n_lines * n_columns) /100)| round(0,'ceil') * 3 }}"
+'max_bands_for_spectral_gn' : "{{ ((max_percentage_of_distorted_bands_for_gn * n_bands) /100)| round(0,'ceil') * 2 }}"
+
+# we add +1 in each trf size to have a cell in the begging of each trf for activation/deactivation
+'continuous_line_col_drop_out_size' : "{{ max_lines + max_bands + 1 + 1 }}"
+'discontinuous_line_col_drop_out_size' : "{{ (max_lines + max_columns + max_bands) + 1 + 1 }}"
+'line_col_stripping_size' : "{{ max_lines + 2 + 1 }}"
+'region_drop_out_size' : "{{ max_bands + 5 + 1 }}"
+'spectral_band_loss_size' : "{{ max_bands_for_sbl + 1 }}"
+'salt_pepper_noise_size' : "{{ (((max_percentage_of_salt_pepper_noisy_pixels * n_lines * n_columns) /100) | round(0,'ceil') * 3) + 1 }}"
+'spatial_gaussian_noise_size' :  "{{ max_pixels_for_spatial_gn + 1 }}"
+'spectral_gaussian_noise_size' : "{{ max_bands_for_spectral_gn + 1 }}"
+'rotation_size' :  "{{ 3 + 1 }}"
+'zoom_size' :  "{{ 3 + 1 }}"
+
+'line_col_transformation_index' : "{{ 0 }}"
+'continuous_line_col_drop_out_index' : "{{ line_col_transformation_index + 1 }}"
+'discontinuous_line_col_drop_out_index' : "{{ continuous_line_col_drop_out_size + continuous_line_col_drop_out_index }}"
+'line_col_stripping_index' : "{{ discontinuous_line_col_drop_out_index + discontinuous_line_col_drop_out_size }}"
+'region_drop_out_index' : "{{ line_col_stripping_index + line_col_stripping_size }}"
+'spectral_band_loss_index' : "{{ region_drop_out_index + region_drop_out_size }}"
+'salt_pepper_noise_index' : "{{ spectral_band_loss_index + spectral_band_loss_size }}"
+'spatial_gaussian_noise_index' : "{{ salt_pepper_noise_index + salt_pepper_noise_size }}"
+'spectral_gaussian_noise_index' : "{{ spatial_gaussian_noise_index + spatial_gaussian_noise_size }}"
+'rotation_index' : "{{ spectral_gaussian_noise_index + spectral_gaussian_noise_size }}"
+'zoom_index' : "{{ rotation_index + rotation_size }}"
+'vector_size': "{{ zoom_index + zoom_size }}"
+
+

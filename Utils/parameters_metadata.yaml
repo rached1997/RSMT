@@ -1,0 +1,53 @@
+# Parameters metadata
+
+# line_col transformations
+'max_percentage_of_distorted_lines': 20
+'min_percentage_of_distorted_lines': 0
+
+# line_col continuous | discontinuous drop out | region drop out
+'max_percentage_of_distorted_bands': 20
+'min_percentage_of_distorted_bands': 0
+
+# line_col discontinuous drop out
+'max_percentage_of_distorted_columns': 100
+'min_percentage_of_distorted_columns': 50
+
+# line stripping
+'max_std_bound': 5
+'min_std_bound': 0.1
+
+'min_mean_bound': 0
+'max_mean_bound': 5
+
+
+# spectral band loss
+'max_percentage_of_distorted_bands_for_sbl': 50
+'min_percentage_of_distorted_bands_for_sbl': 0
+
+# salt and pepper noise
+'max_percentage_of_salt_pepper_noisy_pixels': 7
+'min_percentage_of_salt_pepper_noisy_pixels': 0
+
+# spatial gaussian noise
+'max_percentage_of_gaussian_noisy_pixels': 7
+'min_percentage_of_gaussian_noisy_pixels': 0
+
+# spectral gaussian noise
+'max_percentage_of_distorted_bands_for_gn': 7
+'min_percentage_of_distorted_bands_for_gn': 0
+
+# region drop out
+'max_weight': 5
+'min_weight': 0
+
+'max_height': 5
+'min_height': 0
+
+# rotation
+'max_rotation_angle' : 360.0
+'min_rotation_angle' : 0.0
+
+# zoom in/out
+'max_zoom_factor' : 5.0
+'min_zoom_factor' : 0.3
+
